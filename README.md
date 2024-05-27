@@ -35,11 +35,11 @@ Criar um ambiente virtual para a execução do projeto
 
 **Estrutura de diretórios**
 Estruturar as pastas e arquivos da seguinte maneira:
-> meu_projeto/
-> ├── src/
-> │   └── calculadora.py
-> └── tests/
->     └── test_calculadora.py
+> meu_projeto/  
+> ├── src/  
+> │   └── calculadora.py  
+> └── tests/  
+>     └── test_calculadora.py  
 
 #### Passo 3: Implementação da Função
 
