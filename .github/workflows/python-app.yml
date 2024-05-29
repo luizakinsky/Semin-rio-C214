@@ -3,16 +3,16 @@ name: Python application
 on: [push, pull_request]
 
 jobs:
-  build:
+  test:
 
     runs-on: ubuntu-latest
 
     steps:
     - name: Check out repository code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4  # Atualizado para usar Node.js 20
 
     - name: Set up Python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4  # Atualizado para usar Node.js 20
       with:
         python-version: '3.x'
 
@@ -25,4 +25,29 @@ jobs:
     - name: Run tests
       run: |
         source venv/bin/activate
-        python -m unittest discover -s ./tests
+        python -m unittest discover -s test/tests -p "*.py"
+
+  build:
+
+    runs-on: ubuntu-latest
+    needs: test  # Esta linha garante que a build só será executada se os testes passarem
+
+    steps:
+    - name: Check out repository code
+      uses: actions/checkout@v4  # Atualizado para usar Node.js 20
+
+    - name: Set up Python
+      uses: actions/setup-python@v4  # Atualizado para usar Node.js 20
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m venv venv
+        source venv/bin/activate
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+
+    - name: Build application
+      run: |
+        source venv/bin/activate
+        python -m unittest discover -s src/calculadora -p "*.py"
