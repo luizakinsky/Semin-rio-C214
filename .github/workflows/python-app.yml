@@ -50,4 +50,4 @@ jobs:
     - name: Build application
       run: |
         source venv/bin/activate
-        python -m unittest discover -s src/calculadora -p "*.py"
+        python -m unittest discover -s src -p "*.py"
