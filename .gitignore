@@ -1,0 +1,17 @@
+# Ignorar os diretórios de ambiente virtual
+venv/
+
+# Ignorar os arquivos de Python em cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignorar os arquivos específicos de IDE/editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Ignorar outros arquivos de sistema
+.DS_Store
+.env
